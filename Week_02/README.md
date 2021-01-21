@@ -8,4 +8,4 @@
 
 # 第四课详细笔记以及模型图
 
-[笔记汇总](https://github.com/nuoyimanaituling/JAVA-01/blob/main/Week_02/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE%E8%AF%A6%E7%BB%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)
+[详细笔记](https://github.com/nuoyimanaituling/JAVA-01/blob/main/Week_02/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE%E8%AF%A6%E7%BB%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)
