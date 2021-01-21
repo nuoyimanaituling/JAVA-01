@@ -2,13 +2,13 @@
 
 由于下面两种原因：造成计算机最宝贵的资源被浪费掉，所以我们根据此优化产生了几种通信模型
 
-![image-20210118150011571](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210118150011571.png)
+![image-20210118150011571](Week_02/note model picture/image-20210118150011571.png)
 
 
 
 cpu等待磁盘与网络数据，时间被浪费。从另一种角度看，我们的程序都执行在用户空间
 
-![image-20210118151055559](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210118151055559.png)
+![image-20210118151055559](Week_02/note model picture/image-20210118151055559.png)
 
 
 
@@ -22,17 +22,17 @@ cpu等待磁盘与网络数据，时间被浪费。从另一种角度看，我�
 
 # 五种I/O模型：
 
-![image-20210118151941059](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210118151941059.png)
+![image-20210118151941059](Week_02/note model picture/image-20210118151941059.png)
 
 ## 阻塞式Io：
 
 应用线程阻塞，cpu可以接收多线程进行线程切换
 
-![image-20210118160551582](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210118160551582.png)
+![image-20210118160551582](Week_02/note model picture/image-20210118160551582.png)
 
 ## 非阻塞式Io：
 
-![image-20210118161414339](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210118161414339.png)
+![image-20210118161414339](Week_02/note model picture/image-20210118161414339.png)
 
 ## 阻塞式I/0与非阻塞式I/0的区别：
 
@@ -42,7 +42,7 @@ cpu等待磁盘与网络数据，时间被浪费。从另一种角度看，我�
 
 ## I/O多路复用（阻塞式）：
 
-![image-20210118163916867](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210118163916867.png)
+![image-20210118163916867](Week_02/note model picture/image-20210118163916867.png)
 
 不过此种模型也有自己的缺点；：
 
@@ -82,7 +82,7 @@ select支持文件描述符：1024
 
 ### 实例：reactor模式（反应堆模型，事件驱动模型）：
 
-![image-20210118165448383](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210118165448383.png)事件驱动模型，也被叫做反应堆模型（reactor），或者是 Event loop 模型。核心：
+![image-20210118165448383](Week_02/note model picture/image-20210118165448383.png)事件驱动模型，也被叫做反应堆模型（reactor），或者是 Event loop 模型。核心：
 
 第一，它存在一个无限循环的事件分发线程，或者叫做 reactor 线程、Event loop 线程。这个事件分发线程的背后，就是 poll、epoll 等 I/O 分发技术的使用。
 
@@ -94,19 +94,19 @@ select支持文件描述符：1024
 
 下面代表一个reactor线程同时负责分发 acceptor 的事件、已连接套接字的 I/O 事件。
 
-![image-20210119105439322](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210119105439322.png)
+![image-20210119105439322](Week_02/note model picture/image-20210119105439322.png)
 
 上述设计模式的缺点：
 
 和 I/O 事件处理相比，应用程序的业务逻辑处理是比较耗时的，比如 XML 文件的解析、数据库记录的查找、文件资料的读取和传输、计算型工作的处理等，这些工作相对而言比较独立，它们会拖慢整个反应堆模式的执行效率。所以，将这些 decode、compute、enode 型工作放置到另外的线程池中，和反应堆线程解耦，是一个比较明智的选择。反应堆线程只负责处理 I/O 相关的工作，业务逻辑相关的工作都被裁剪成一个一个的小任务，放到线程池里由空闲的线程来执行。当结果完成后，再交给反应堆线程，由反应堆线程通过套接字将结果发送出去。改进后模型如下：
 
-![image-20210119110027614](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210119110027614.png)
+![image-20210119110027614](Week_02/note model picture/image-20210119110027614.png)
 
 ### 主从reactor模式：
 
 主 - 从这个模式的核心思想是，主反应堆线程只负责分发 Acceptor 连接建立，已连接套接字上的 I/O 事件交给 sub-reactor 负责分发。其中 sub-reactor 的数量，可以根据 CPU 的核数来灵活设置。而且，同一个套接字事件分发只会出现在一个反应堆线程中，这会大大减少并发处理的锁开销。
 
-![image-20210119131421382](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210119131421382.png)
+![image-20210119131421382](Week_02/note model picture/image-20210119131421382.png)
 
 
 
@@ -204,7 +204,7 @@ try {
 
 ```
 
-![image-20210119133511052](D:\JAVA01\JAVA-01\Week_02\note model picture\image-20210119133511052.png)
+![image-20210119133511052](Week_02/note model picture/image-20210119133511052.png)
 
 
 
