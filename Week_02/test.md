@@ -2,7 +2,7 @@
 
 由于下面两种原因：造成计算机最宝贵的资源被浪费掉，所以我们根据此优化产生了几种通信模型
 
-![image-20210118150011571](Week_02/note model picture/image-20210118150011571.png)
+![image-20210118150011571](https://github.com/nuoyimanaituling/JAVA-01/blob/main/Week_02/note%20model%20picture/image-20210118150011571.png)
 
 
 
