@@ -1,6 +1,6 @@
 学习笔记：
 
-![image-20210227203342384](C:/Users/xzw/AppData/Roaming/Typora/typora-user-images/image-20210227203342384.png)
+![image-20210227203342384](shop.png)
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
